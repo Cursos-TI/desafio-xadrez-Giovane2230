@@ -7,7 +7,8 @@
 int main()
 {
 
-    int movBispo = 0, movTorre = 0, movRainha = 0; // Variáveis dos movimentos de cada peça
+    int movBispo = 0, movTorre = 0, movRainha = 0;
+    int movCavalo = 1; // Variáveis dos movimentos de cada peça
 
     // Implementação de Movimentação do Bispo
     do
@@ -29,9 +30,15 @@ int main()
         movRainha++;
     }
 
-    // Nível Aventureiro - Movimentação do Cavalo
-    // Sugestão: Utilize loops aninhados para simular a movimentação do Cavalo em L.
-    // Um loop pode representar a movimentação horizontal e outro vertical.
+    // Implementação de Movimentação do Cavalo
+    while (movCavalo--)
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            printf("Cavalo: Cima\n");
+        }
+        printf("Cavalo: Direita\n");
+    }
 
     // Nível Mestre - Funções Recursivas e Loops Aninhados
     // Sugestão: Substitua as movimentações das peças por funções recursivas.
