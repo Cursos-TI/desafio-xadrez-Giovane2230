@@ -1,51 +1,66 @@
-#include <stdio.h>
+#include <stdio.h> //Inclusão de Biblioteca
 
-// Desafio de Xadrez - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
-// O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
+// Implementação de Movimentação do Bispo
+void movBispo(int limite)
+{
+    if (limite > 0) // Recursividade
+    {
+        for (int i = 0; i < 5; i++) // Loops Aninhados
+        {
+            printf("Bispo: Cima\n");
+            for (int j = 0; j < 1; j++)
+            {
+                printf("Bispo: Direita\n");
+            }
+        }
+        movBispo(limite - 1);
+    }
+}
 
+// Implementação de Movimentação da Torre
+void movTorre(int limite)
+{
+    if (limite > 0)
+    {
+        printf("Torre: Direita\n");
+        movTorre(limite - 1);
+    }
+}
+
+// Implementação de Movimentação da Rainha
+void movRainha(int limite)
+{
+    if (limite > 0)
+    {
+        printf("Rainha: Esquerda\n");
+        movRainha(limite - 1);
+    }
+}
+
+// Função Principal
 int main()
 {
 
-    int movBispo = 0, movTorre = 0, movRainha = 0;
-    int movCavalo = 1; // Variáveis dos movimentos de cada peça
+    // Move o Bispo
+    movBispo(1);
 
-    // Implementação de Movimentação do Bispo
-    do
-    {
-        printf("Bispo: Cima, Direita\n");
-        movBispo++;
-    } while (movBispo < 5);
+    // Move a Torre
+    movTorre(5);
 
-    // Implementação de Movimentação da Torre
-    for (movTorre = 0; movTorre < 5; movTorre++)
-    {
-        printf("Torre: Direita\n");
-    }
-
-    // Implementação de Movimentação da Rainha
-    while (movRainha < 8)
-    {
-        printf("Rainha: Esquerda\n");
-        movRainha++;
-    }
+    // Move a Rainha
+    movRainha(8);
 
     // Implementação de Movimentação do Cavalo
-    while (movCavalo--)
+    for (int movCavalo = 0; movCavalo < 3; movCavalo++)
     {
-        for (int i = 0; i < 2; i++)
+        if (movCavalo < 2) // Loops com Múltiplas Condições
         {
             printf("Cavalo: Cima\n");
+            continue; // Pula a iteração se movCavalo for menor que 2
         }
+        if (movCavalo > 2) 
+            break; // Para o loop se movCavalo for maior que 2
         printf("Cavalo: Direita\n");
     }
-
-    // Nível Mestre - Funções Recursivas e Loops Aninhados
-    // Sugestão: Substitua as movimentações das peças por funções recursivas.
-    // Exemplo: Crie uma função recursiva para o movimento do Bispo.
-
-    // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
-    // Inclua o uso de continue e break dentro dos loops.
-
     return 0;
 }
